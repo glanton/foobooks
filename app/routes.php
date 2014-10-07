@@ -13,5 +13,33 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return "Hello, World.";
+	//return View::make('hello');
+});
+
+Route::get('/goodbye', function()
+{
+	return "Goobye, World.";
+});
+
+Route::get('/number/{theNum}', function($theNum)
+{
+	return "Your number is " . $theNum;
+});
+
+Route::get('/new', function() {
+
+    $view  = '<form method="POST">';
+    $view .= 'Title: <input type="text" name="title">';
+    $view .= '<input type="submit">';
+    $view .= '</form>';
+    return $view;
+
+});
+
+Route::post('/new', function() {
+
+    $input =  Input::all();
+    print_r($input);
+
 });
